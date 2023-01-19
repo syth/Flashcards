@@ -12,7 +12,8 @@ A very primitive flashcard program designed to help me memorize Hiragana for my 
 !!!MUST BE ON A MAC!!!!
 1. Clone or download the repository and go to the root directory.
 2. Run 'flashcards.py' in your choice of IDE
-## ALTERNATIVE WAY TO RUN
+## Alternative way to run
+!!!MUST BE ON A MAC!!!
 1. Go to releases
 2. Download the latest release
 3. Run the executable
