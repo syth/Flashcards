@@ -6,14 +6,11 @@ A very primitive flashcard program designed to help me memorize Hiragana for my 
 
 ## Prerequisites
 - A IDE that can compile Python programs (i.e. VSCode, Pycharm, etc.)
-- !!!MUST BE ON A MAC!!!!
 
 ## How to Run
-!!!MUST BE ON A MAC!!!!
 1. Clone or download the repository and go to the root directory.
 2. Run 'flashcards.py' in your choice of IDE
 ## Alternative way to run
-!!!MUST BE ON A MAC!!!
 1. Go to releases
 2. Download the latest release
 3. Run the executable
@@ -45,7 +42,7 @@ This is a list of all plans for this program. This is NOT in any kind of order. 
 - Fix scaling when window is resized
 - Fix formatting of window
 - Possibly fix code formatting (i.e. make things secure, cleaning up how some things look)
-- Adding Windows/Linux support
+- Adding Linux support
 
 ## Licence
 AGPL
