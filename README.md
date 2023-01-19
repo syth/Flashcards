@@ -13,15 +13,16 @@ A very primitive flashcard program designed to help me memorize Hiragana for my 
 - If the release does not say that there's a Windows version then you will have to use an older version for the time being.
 
 ## How to Run
-1. Go to releases
-2. Download the latest release
-3. Run the executable
+1. ~~~Go to releases~~~
+2. ~~~Download the latest release~~~
+3. ~~~Run the executable~~~
 4. Learn some basic Hiragana!
 
 If you are on Windows and want an updated standalone version, then you WILL have to compile it yourself if there's no Windows standalone release with the update
 ## Alternative way to run
 1. Clone or download the repository and go to the root directory.
 2. Run 'flashcards.py' in your choice of IDE
+You can use a bundle compiler to make it a single executable.
 
 
 ## Known Bugs and Disclaimers
@@ -44,7 +45,7 @@ This is a list of all plans for this program. This is NOT in any kind of order. 
 - Adding Linux support (to be honest I don't see this happening at all but I'm all for multiplatform support)
 
 ## Completed Plans
-- Made a standalone product (albeit primarly for MacOS)
+- ~~~Made a standalone product (albeit primarly for MacOS)~~~
 - Added Windows support (!!very limited!!)
 - Corresponding colors to what your answer was
 - Added a ratio to determine accuracy
