@@ -7,6 +7,11 @@ A very primitive flashcard program designed to help me memorize Hiragana for my 
 ## Prerequisites
 - A IDE that can compile Python programs (i.e. VSCode, Pycharm, etc.)
 
+## NOTICE FOR WINDOWS USERS
+- Windows updates will come way after Mac releases. 
+- Any release besides V1.0.0 will specificially mention if there is a Windows release available.
+- If the release does not say that there's a Windows version then you will have to use an older version for the time being.
+
 ## How to Run
 1. Clone or download the repository and go to the root directory.
 2. Run 'flashcards.py' in your choice of IDE
