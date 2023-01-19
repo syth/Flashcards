@@ -29,10 +29,10 @@ CHARACTER_DICT = {
 
 class App:
     def __init__(self, window):
-        window.geometry("900x650")
+        window.geometry("800x650")
         window.title("Flashcards")
         window.rowconfigure([0,2], minsize=250, weight=1)
-        window.columnconfigure([0, 3], minsize=250, weight=1)
+        window.columnconfigure([0, 2], minsize=250, weight=1)
 
         back = tk.Frame(master=window, bg="black")
         back.grid_propagate(0)
@@ -42,28 +42,28 @@ class App:
         character_label.grid(row=0, column=1, sticky="nsew")
 
         correct_label = tk.Label(window, text="Correct Guesses: 0", font=("Serif Sans", 30), fg="green", wraplength=130, justify="center")
-        correct_label.grid(row=0, column=3, sticky="nsew")
+        correct_label.grid(row=0, column=0, sticky="nsew")
 
         incorrect_label = tk.Label(window, text="Incorrect Guesses: 0", font=("Serif Sans", 30), fg="red", wraplength=130, justify="center")
-        incorrect_label.grid(row=1, column=3, sticky="nsew")
+        incorrect_label.grid(row=0, column=2, sticky="nsew")
 
         ratio_label = tk.Label(window, text="0.0% Accuracy", font=("Sans Serif", 25))
-        ratio_label.grid(row=2, column=3, sticky="nsew")
+        ratio_label.grid(row=1, column=2, sticky="ns")
 
         guess_label = tk.Label(window, text="Previous Answer Result:", font=("Serif Sans", 30), wraplength=125, justify="center")
-        guess_label.grid(row=0, column=0, sticky="nsew")
+        guess_label.grid(row=1, column=0, sticky="nsew")
 
         answer_label = tk.Label(window, text="", font=("Serif Sans", 30))
-        answer_label.grid(row=1, column=0, sticky="nsew")
+        answer_label.grid(row=2, column=0, sticky="n")
 
-        user_input = tk.Entry(window, font=("Serif Sans", 16), width=25)
+        user_input = tk.Entry(window, font=("Serif Sans", 16), width=22)
         user_input.grid(row=2, column=1, padx=20)
 
         answer_button = tk.Button(master=window, text="Answer", command=lambda: answer(character_label, answer_label, user_input, correct_label, incorrect_label, ratio_label))
-        answer_button.grid(row=4, column=1, sticky="ew")
+        answer_button.grid(row=4, column=1)
 
         next_button = tk.Button(master=window, text="Skip Word", command=lambda: next_word(character_label, answer_label, user_input))
-        next_button.grid(row=4, column=2, sticky="ew")
+        next_button.grid(row=4, column=2)
 
         next_word(character_label, answer_label, user_input) # runs the next_word function when the program starts
 
@@ -126,7 +126,7 @@ def score_ratio(correct, total, ratio_label):
     accuracy = (correct / total)*100
     ratio = (round(accuracy, 2))
     ratio_string = str(ratio)
-    ratio_label.config(text=ratio_string + "% Accurate")
+    ratio_label.config(text=ratio_string + "% Accuracy")
 
 
 def main():
