@@ -9,7 +9,7 @@ CORRECT_POINTS = 0
 INCORRECT_POINTS = 0
 TOTAL_POINTS = 0
 
-PRIMITIVE_DICT = {
+EASY_DICT = {
     "あ":"a",
     "い":"i",
     "う":"u",
@@ -24,7 +24,17 @@ PRIMITIVE_DICT = {
     "ぎ":"gi",
     "ぐ":"gu",
     "げ":"ge",
-    "ご":"go"
+    "ご":"go",
+    "さ":"sa",
+    "し":"shi",
+    "す":"su",
+    "せ":"se",
+    "そ":"so",
+    "ざ":"za",
+    "じ":"ji",
+    "ず":"zu",
+    "ぜ":"ze",
+    "ぞ":"zo"
 }
 
 class App():
@@ -44,18 +54,29 @@ class App():
         menubar = Menu(root)
         filemenu = Menu(menubar)
         helpmenu = Menu(menubar)
+        difficulty_menu = Menu(filemenu, tearoff=0)
+        language_menu = Menu(filemenu, tearoff=0)
 
         # Adds different sections for each menubar section
         menubar.add_cascade(menu=filemenu, label="Settings")
         menubar.add_cascade(menu=helpmenu, label="Help")
 
+        # difficulty_menu commands
+        menubar.add_command(label="Easy", command=lambda: change_difficulty(0))
+        menubar.add_command(label="Medium", command=lambda: change_difficulty(1))
+        menubar.add_command(label="Hard", command=lambda: change_difficulty(2))
+
+        # language_menu commands
+
         # filemenu commands
+        filemenu.add_cascade(label="Difficulty", menu=difficulty_menu)
+        filemenu.add_cascade(label="Language", menu=language_menu)
         filemenu.add_command(label="Exit", command=lambda: root.quit())
 
         # helpmenu commands
-        helpmenu.add_command(label="Help")
+        helpmenu.add_command(label="Help", command=lambda: help_section(root))
         helpmenu.add_separator()
-        helpmenu.add_command(label="About")
+        helpmenu.add_command(label="About", command=lambda: about_section(root))
 
         # Character(s) label
         character_label = Label(root, text="", font=("Serif Sans", 130))
@@ -104,22 +125,48 @@ class App():
         root.mainloop()
 
 
-def change_difficulty():
+def change_difficulty(difficulty):
     """
     Change between difficulty levels
     """
-    pass
+    if difficulty == 0:
+        # use EASY_DICT
+        pass
+    elif difficulty == 1:
+        # use MED_DICT
+        pass
+    elif difficulty == 2:
+        # use HARD_DICT
+        pass
+    else:
+        # default to EASY_DICT
+        pass
+    
 
-def help_section():
+def help_section(root):
     """
     Displays a help menu
     """
-    pass
+    help_pop = Toplevel(root)
+    help_pop.geometry("600x445")
+    help_pop.title("Flashcards Help")
+    Label(help_pop, text="Click settings to change settings.", font=("Serif Sans", 30), pady=20).pack()
+    Label(help_pop, text="Press <Enter> to submit answer.", font=("Serif Sans", 30), pady=20).pack()
+    Label(help_pop, text="Press <R-Shift> to skip the current word.", font=("Serif Sans", 30), pady=20).pack()
+    Button(help_pop, text="Okay", font=("Serif Sans", 22), width=7, height=1, pady=20, command=lambda: help_pop.destroy()).pack()
 
-def about_section():
+
+def about_section(root):
     """
     Displays information pertaining about the program
     """
+    about = Toplevel(root)
+    about.geometry("600x445")
+    about.title("About Flashcards")
+    Label(about, text="Flashcards is a tool made to test memorization of Japanese.", font=("Serif Sans", 40), pady=20, wraplength=570, justify="center").pack()
+    Label(about, text="This is a learning expecting - teaching me Japanese and new Python packages", font=("Serif Sans", 30), wraplength=500, justify="center", pady=10).pack()
+    Button(about, text="Okay", font=("Serif Sans", 22), width=4, height=2, command=lambda: about.destroy()).place(x=300, y=400, anchor="s")
+    Label(about, text="©Cole DenBleyker 2023-", font=("Serif Sans", 12), pady=-10).place(x=300, y=420, anchor="s")
     pass
 
 def next_word(character_label, user_input):
@@ -127,7 +174,7 @@ def next_word(character_label, user_input):
     Gets the next character(s) at random
     """
     user_input.delete(0, 'end')
-    rand_word = random.choice(list(PRIMITIVE_DICT.keys()))
+    rand_word = random.choice(list(EASY_DICT.keys()))
     character_label.config(text=rand_word)
 
 def answer(character_label, answer_label, user_input, correct_label, incorrect_label, ratio_label):
@@ -139,7 +186,7 @@ def answer(character_label, answer_label, user_input, correct_label, incorrect_l
     global INCORRECT_POINTS
     global TOTAL_POINTS
 
-    value = PRIMITIVE_DICT.get(word)
+    value = EASY_DICT.get(word)
     correct = CORRECT_POINTS
     incorrect = INCORRECT_POINTS
     total = TOTAL_POINTS
